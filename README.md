@@ -25,7 +25,7 @@ Welcome to Galaxy Store - the shop where you can find the finest furniture for y
 
 ## Installation and Running
 
-1. Clone the repository: `git clone https://github.com/your-username/galaxy-store.git`
+1. Clone the repository: `git clone https://github.com/jackal7819/Galaxy-Store.git`
 2. Navigate to the project directory: `cd galaxy-store`
 3. Install dependencies: `npm install` or `yarn install`
 4. Start the application in development mode: `npm run dev` or `yarn dev`
@@ -37,5 +37,5 @@ Welcome to Galaxy Store - the shop where you can find the finest furniture for y
 
 ---
 
-Thank you for using Galaxy Store! We hope you find the perfect furniture for your space. If you have any questions or suggestions, feel free to create issues in the [repository](https://github.com/your-username/galaxy-store).
+Thank you for using Galaxy Store! We hope you find the perfect furniture for your space. If you have any questions or suggestions, feel free to create issues in the [repository](https://github.com/jackal7819/Galaxy-Store.git).
 
