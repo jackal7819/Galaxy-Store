@@ -4,7 +4,7 @@ Welcome to Galaxy Store - the shop where you can find the finest furniture for y
 
 ## Project Link
 
-[Galaxy Store Project](https://liquid-lab.onrender.com)
+[Galaxy Store Project](https://galaxy-store.onrender.com)
 
 ## Technologies and Libraries
 
