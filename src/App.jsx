@@ -22,13 +22,13 @@ const router = createBrowserRouter([
 			{ path: 'about', element: <About /> },
 			{ path: 'cart', element: <Cart /> },
 			{ path: 'checkout', element: <Checkout /> },
-			{ path: 'login', element: <Login /> },
 			{ path: 'orders', element: <Orders /> },
 			{ path: 'products', element: <Products /> },
-			{ path: 'register', element: <Register /> },
 			{ path: 'products/:id', element: <SingleProduct /> },
 		],
 	},
+	{ path: 'login', element: <Login />, errorElement: <Error /> },
+	{ path: 'register', element: <Register />, errorElement: <Error /> },
 ]);
 
 const App = () => {
