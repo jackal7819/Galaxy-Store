@@ -10,8 +10,8 @@ const ProductsGrid = () => {
 			{products?.map((product) => (
 				<Link
 					key={product.id}
-					to={`/product/${product.id}`}
-					className='w-full transition shadow shadow-secondary-content card duration hover:-translate-y-5'>
+					to={`/products/${product.id}`}
+					className='w-full transition shadow shadow-secondary-content card duration hover:-translate-y-2'>
 					<figure className='px-4 pt-4'>
 						<img
 							src={product.attributes.image}
