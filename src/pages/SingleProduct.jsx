@@ -1,13 +1,19 @@
 import { Link, useLoaderData } from 'react-router-dom';
 
-import { formatPrice } from '../services/formatPrice';
+import formatPrice from '../services/formatPrice';
 import { useState } from 'react';
+import generateQuantity from '../services/generateQuantity';
 
 const SingleProduct = () => {
 	const { product } = useLoaderData();
 	const { title, price, image, description, colors, company } =
 		product.attributes;
 	const [productColor, setProductColor] = useState(colors[0]);
+	const [quantity, setQuantity] = useState(1);
+
+	const quantityHandler = (event) => {
+		setQuantity(parseInt(event.target.value));
+	};
 
 	return (
 		<section>
@@ -52,6 +58,27 @@ const SingleProduct = () => {
 									}></button>
 							))}
 						</div>
+					</div>
+					<div className='w-full max-w-xs form-control'>
+						<label htmlFor='quantity' className='label'>
+							<h4 className='font-medium capitalize text-md -tracking-wider'>
+								quantity
+							</h4>
+						</label>
+						<select
+							className='select select-primary select-bordered select-md'
+							id='quantity'
+							value={quantity}
+							onChange={quantityHandler}>
+							{generateQuantity(9)}
+						</select>
+					</div>
+					<div className='mt-10'>
+						<button
+							className='btn btn-primary btn-md'
+							onClick={() => console.log('add to bag')}>
+							Add to bag
+						</button>
 					</div>
 				</div>
 			</div>

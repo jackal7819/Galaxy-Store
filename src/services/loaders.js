@@ -1,4 +1,4 @@
-import { customFetch } from './customFetch';
+import customFetch from './customFetch';
 
 const productsUrl = '/products?featured=true';
 
