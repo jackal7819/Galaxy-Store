@@ -6,12 +6,12 @@ const ProductsGrid = () => {
 	const { products } = useLoaderData();
 
 	return (
-		<div className='grid gap-4 pt-12 md:grid-cols-2 lg:grid-cols-3'>
-			{products?.map((product) => (
+		<div className='grid gap-8 pt-12 md:grid-cols-2 lg:grid-cols-3'>
+			{products.map((product) => (
 				<Link
 					key={product.id}
 					to={`/products/${product.id}`}
-					className='w-full transition shadow shadow-secondary-content card duration hover:-translate-y-2'>
+					className='w-full transition duration-300 shadow shadow-secondary-content card hover:-translate-y-4'>
 					<figure className='px-4 pt-4'>
 						<img
 							src={product.attributes.image}

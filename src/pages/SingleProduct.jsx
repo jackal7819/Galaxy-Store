@@ -48,7 +48,7 @@ const SingleProduct = () => {
 							{colors.map((color) => (
 								<button
 									key={color}
-									className={`badge-lg mr-2 ${
+									className={`badge badge-lg mr-2 duration-200 ${
 										color === productColor &&
 										'shadow-inner shadow-black'
 									}`}
