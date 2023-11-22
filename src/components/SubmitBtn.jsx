@@ -1,5 +1,5 @@
-import { useNavigation } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import { useNavigation } from 'react-router-dom';
 
 const SubmitBtn = ({ text }) => {
 	const navigation = useNavigation();

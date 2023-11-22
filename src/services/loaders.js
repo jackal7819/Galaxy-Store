@@ -15,9 +15,13 @@ export const singleProductLoader = async ({ params }) => {
 	return { product };
 };
 
-export const productsLoader = async () => {
-	const response = await customFetch(productsUrl);
+export const productsLoader = async ({ request }) => {
+	const params = Object.fromEntries([
+		...new URL(request.url).searchParams.entries(),
+	]);
+	console.log(request);
+	const response = await customFetch(productsUrl, { params });
 	const products = response.data.data;
 	const meta = response.data.meta;
-	return { products, meta };
+	return { products, meta, params };
 };
