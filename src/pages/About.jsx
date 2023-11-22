@@ -7,7 +7,7 @@ const About = () => {
 				</h1>
 				<div className='shadow stats bg-primary'>
 					<div className='stat'>
-						<div className='text-4xl font-bold tracking-widest stat-title text-primary-content'>
+						<div className='text-4xl font-bold tracking-widest uppercase stat-title text-primary-content'>
 							home
 						</div>
 					</div>

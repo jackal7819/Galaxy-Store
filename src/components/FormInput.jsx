@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 
-const FormInput = ({ label, name, type, defaultValue }) => {
+const FormInput = ({ label, name, type, defaultValue, size }) => {
 	return (
 		<div className='form-control'>
-			<label htmlFor='' className='label'>
-				<span className='label-text'>{label}</span>
+			<label className='label'>
+				<span className='capitalize label-text'>{label}</span>
 			</label>
 			<input
 				type={type}
 				name={name}
 				defaultValue={defaultValue}
-				className='input input-bordered'
+				className={`input input-bordered ${size}`}
 			/>
 		</div>
 	);
@@ -20,6 +20,7 @@ FormInput.propTypes = {
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
+	size: PropTypes.string.isRequired,
 	defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
