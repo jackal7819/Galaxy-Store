@@ -17,7 +17,7 @@ const ProductsList = () => {
 						alt={product.attributes.title}
 						className='object-cover w-32 h-24 transition duration-300 rounded-lg sm:w-40 sm:h-32 group-hover:scale-105'
 					/>
-					<div className='ml-0 text-center sm:ml-16'>
+					<div className='ml-0 text-center sm:ml-16 sm:text-left'>
 						<h3 className='text-lg font-medium capitalize'>
 							{product.attributes.title}
 						</h3>
