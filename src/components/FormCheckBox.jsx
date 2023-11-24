@@ -14,7 +14,7 @@ const FormCheckBox = ({ label, name, defaultValue, size }) => {
 FormCheckBox.propTypes = {
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	defaultValue: PropTypes.bool.isRequired,
+	defaultValue: PropTypes.bool,
 	size: PropTypes.string.isRequired,
 };
 

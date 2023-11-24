@@ -7,7 +7,6 @@ import FormSelect from './FormSelect';
 
 const Filters = () => {
 	const { meta, params } = useLoaderData();
-	console.log(params);
 
 	return (
 		<Form className='grid items-center px-8 py-4 rounded-md bg-neutral gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>

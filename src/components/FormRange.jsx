@@ -38,7 +38,7 @@ FormRange.propTypes = {
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	size: PropTypes.string.isRequired,
-	price: PropTypes.string.isRequired,
+	price: PropTypes.string,
 };
 
 export default FormRange;
