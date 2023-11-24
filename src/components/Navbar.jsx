@@ -1,12 +1,14 @@
-import { NavLink } from 'react-router-dom';
 import {
 	FaBarsStaggered,
 	FaCartShopping,
 	FaMoon,
 	FaSun,
 } from 'react-icons/fa6';
-import Navlinks from './Navlinks';
 import { useEffect, useState } from 'react';
+
+import { NavLink } from 'react-router-dom';
+import Navlinks from './Navlinks';
+import { useSelector } from 'react-redux';
 
 const themes = { retro: 'retro', coffee: 'coffee' };
 const getTheme = () => localStorage.getItem('theme') || themes.retro;
@@ -25,6 +27,8 @@ const Navbar = () => {
 		document.documentElement.setAttribute('data-theme', theme);
 		localStorage.setItem('theme', theme);
 	}, [theme]);
+
+	const numItemsInCart = useSelector((state) => state.cart.numItemsInCart);
 
 	return (
 		<nav className='bg-base-200'>
@@ -63,7 +67,7 @@ const Navbar = () => {
 						<div className='indicator'>
 							<FaCartShopping size={24} />
 							<span className='badge badge-sm indicator-item badge-primary'>
-								4
+								{numItemsInCart}
 							</span>
 						</div>
 					</NavLink>

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const initialState = {
 	cartItems: [],
@@ -14,7 +15,24 @@ const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addItem: (state, action) => {
-			console.log(action.payload);
+			const { product } = action.payload;
+			const item = state.cartItems.find(
+				(item) => item.cartID === product.cartID
+			);
+			if (item) {
+				item.quantity += product.quantity;
+			} else {
+				state.cartItems.push(product);
+			}
+			state.numItemsInCart += product.quantity;
+			state.cartTotal = product.price * product.quantity;
+			state.tax = state.cartTotal * 0.2;
+			state.orderTotal = state.cartTotal + state.shipping + state.tax;
+			localStorage.setItem('cart', JSON.stringify(state));
+			const capitalizedTitle = product.title.replace(/\b\w/g, (match) =>
+				match.toUpperCase()
+			);
+			toast.success(`${capitalizedTitle} added to cart`);
 		},
 		clearCart: (state) => {
 			console.log(state);
