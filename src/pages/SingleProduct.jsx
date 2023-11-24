@@ -1,10 +1,13 @@
 import { Link, useLoaderData } from 'react-router-dom';
 
+import { addItem } from '../store/cartSlice';
 import formatPrice from '../services/formatPrice';
-import { useState } from 'react';
 import generateQuantity from '../services/generateQuantity';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 const SingleProduct = () => {
+	const dispatch = useDispatch();
 	const { product } = useLoaderData();
 	const { title, price, image, description, colors, company } =
 		product.attributes;
@@ -13,6 +16,21 @@ const SingleProduct = () => {
 
 	const quantityHandler = (event) => {
 		setQuantity(parseInt(event.target.value));
+	};
+
+	const cartProduct = {
+		cartID: product.id + productColor,
+		productID: product.id,
+		image,
+		title,
+		price,
+		company,
+		productColor,
+		quantity,
+	};
+
+	const addToCart = () => {
+		dispatch(addItem({ product: cartProduct }));
 	};
 
 	return (
@@ -76,7 +94,7 @@ const SingleProduct = () => {
 					<div className='mt-10'>
 						<button
 							className='btn btn-primary btn-md'
-							onClick={() => console.log('add to bag')}>
+							onClick={addToCart}>
 							Add to bag
 						</button>
 					</div>
