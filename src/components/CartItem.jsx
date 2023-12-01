@@ -1,9 +1,20 @@
+import { editItem, removeItem } from '../store/cartSlice';
+
 import { PropTypes } from 'prop-types';
 import formatPrice from '../services/formatPrice';
 import generateQuantity from '../services/generateQuantity';
+import { useDispatch } from 'react-redux';
 
 const CartItem = ({ cartItem }) => {
-	const { title, price, image, quantity, company, productColor } = cartItem;
+	const dispatch = useDispatch();
+	const { cartID, title, price, image, quantity, company, productColor } =
+		cartItem;
+
+	const removeItemHandler = () => dispatch(removeItem({ cartID }));
+
+	const quantityHandler = (event) => {
+		dispatch(editItem({ cartID, quantity: parseInt(event.target.value) }));
+	};
 
 	return (
 		<article className='flex flex-col flex-wrap pb-6 mb-12 border-b border-base-300 gap-y-4 sm:flex-row last:border-b-0'>
@@ -33,12 +44,17 @@ const CartItem = ({ cartItem }) => {
 					<select
 						name='quantity'
 						id='quantity'
+						value={quantity}
+						onChange={quantityHandler}
 						className='mt-2 select select-secondary select-boarded select-xs'
 					>
 						{generateQuantity(quantity + 5)}
 					</select>
 				</div>
-				<button className='mt-2 text-sm link link-primary link-hover'>
+				<button
+					className='mt-2 text-sm link link-primary link-hover'
+					onClick={removeItemHandler}
+				>
 					remove
 				</button>
 			</div>
