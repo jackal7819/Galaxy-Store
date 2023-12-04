@@ -32,7 +32,7 @@ export const loginAction = (store) => async ({request}) => {
 		return redirect('/');
 	} catch (error) {
 		const errorMessage =
-			error?.response?.data?.error.message ||
+			error?.response?.data?.error?.message ||
 			'Please, double check your credentials';
 		toast.error(errorMessage);
 		return null;

@@ -1,37 +1,56 @@
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
+
 import FormInput from '../components/FormInput';
 import SubmitBtn from '../components/SubmitBtn';
+import customFetch from '../services/customFetch';
+import { loginUser } from '../store/userSlice';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const guestLogin = async () => {
+		try {
+			const response = await customFetch.post('/auth/local', {
+				identifier: 'test@test.com',
+				password: 'secret',
+			});
+			dispatch(loginUser(response.data));
+			toast.success('Welcome, Guest');
+			navigate('/');
+		} catch (error) {
+			console.log(error);
+			toast.error('Guest login error. Please try again');
+		}
+	};
+
 	return (
 		<section className='grid h-screen place-items-center'>
 			<Form
 				method='POST'
-				className='p-8 shadow shadow-primary card w-96 bg-base-100 gap-y-4'>
+				className='p-8 shadow shadow-primary card w-96 bg-base-100 gap-y-4'
+			>
 				<h4 className='text-3xl font-bold text-center'>Login</h4>
-				<FormInput
-					type='email'
-					label='email'
-					name='identifier'
-					defaultValue='test@test.com'
-				/>
-				<FormInput
-					type='password'
-					label='password'
-					name='password'
-					defaultValue='secret'
-				/>
+				<FormInput type='email' label='email' name='identifier' />
+				<FormInput type='password' label='password' name='password' />
 				<div className='mt-4'>
 					<SubmitBtn text='login' />
 				</div>
-				<button className='uppercase duration-300 btn btn-block btn-secondary'>
+				<button
+					type='button'
+					className='uppercase duration-300 btn btn-block btn-secondary'
+					onClick={guestLogin}
+				>
 					guest user
 				</button>
 				<p className='text-center'>
 					Not a member yet?{' '}
 					<Link
 						to='/register'
-						className='ml-2 capitalize link link-hover link-primary'>
+						className='ml-2 capitalize link link-hover link-primary'
+					>
 						register
 					</Link>
 				</p>
