@@ -64,15 +64,15 @@ const CartItem = ({ cartItem }) => {
 };
 
 CartItem.propTypes = {
-	cartItem: {
+	cartItem: PropTypes.shape({
 		cartID: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
+		price: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
 		quantity: PropTypes.number.isRequired,
 		company: PropTypes.string.isRequired,
 		productColor: PropTypes.string.isRequired,
-	},
+	}).isRequired,
 };
 
 export default CartItem;

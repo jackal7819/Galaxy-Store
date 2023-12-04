@@ -4,6 +4,7 @@ import {
 	productsLoader,
 	singleProductLoader,
 } from './services/loaders';
+import { loginAction, registerAction } from './services/actions';
 
 import About from './pages/About';
 import Cart from './pages/Cart';
@@ -17,7 +18,7 @@ import Orders from './pages/Orders';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import SingleProduct from './pages/SingleProduct';
-import { registerAction } from './services/actions';
+import { store } from './store/store';
 
 const router = createBrowserRouter([
 	{
@@ -49,7 +50,12 @@ const router = createBrowserRouter([
 			{ path: 'orders', element: <Orders /> },
 		],
 	},
-	{ path: 'login', element: <Login />, errorElement: <Error /> },
+	{
+		path: 'login',
+		element: <Login />,
+		errorElement: <Error />,
+		action: loginAction(store),
+	},
 	{
 		path: 'register',
 		element: <Register />,

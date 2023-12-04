@@ -20,7 +20,7 @@ FormInput.propTypes = {
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
-	size: PropTypes.string.isRequired,
+	size: PropTypes.string,
 	defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

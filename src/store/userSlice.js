@@ -2,14 +2,20 @@ import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
 const themes = { retro: 'retro', coffee: 'coffee' };
+
 const getTheme = () => {
 	const theme = localStorage.getItem('theme') || themes.retro;
 	document.documentElement.setAttribute('data-theme', theme);
 	return theme;
 };
 
+const getUser = () => {
+	const user = localStorage.getItem('user');
+	return user ? JSON.parse(user) : null;
+}
+
 const initialState = {
-	user: { username: 'Chuck Norris' },
+	user: getUser(),
 	theme: getTheme(),
 };
 
@@ -18,7 +24,9 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		loginUser: (state, action) => {
-			console.log(state, action);
+			const user = { ...action.payload.user, token: action.payload.jwt };
+			state.user = user;
+			localStorage.setItem('user', JSON.stringify(user));
 		},
 		logoutUser: (state) => {
 			state.user = null;

@@ -22,11 +22,17 @@ const Cart = () => {
 					{user ? (
 						<Link
 							to='/checkout'
-							className='mt-8 btn btn-primary btn-block'>
+							className='mt-8 btn btn-primary btn-block'
+						>
 							proceed to checkout
 						</Link>
 					) : (
-						<Link className='mt-8 uppercase btn btn-primary btn-block'>please login</Link>
+						<Link
+							to='/login'
+							className='mt-8 uppercase btn btn-primary btn-block'
+						>
+							please login
+						</Link>
 					)}
 				</div>
 			</div>
