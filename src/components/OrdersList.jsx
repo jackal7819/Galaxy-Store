@@ -9,7 +9,7 @@ const OrdersList = () => {
 				total orders : {meta.pagination.total}
 			</h4>
 			<div className='overflow-x-auto'>
-				<table className='table table-zebra'>
+				<table className='table text-center table-zebra'>
 					<thead>
 						<tr>
 							<th>Name</th>

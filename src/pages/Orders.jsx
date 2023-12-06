@@ -1,5 +1,5 @@
+import ComplexPagination from '../components/ComplexPagination';
 import OrdersList from '../components/OrdersList';
-import PaginationContainer from '../components/PaginationContainer';
 import SectionTitle from '../components/SectionTitle';
 import { useLoaderData } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Orders = () => {
 		<>
 			<SectionTitle text='Your Orders' />
 			<OrdersList />
-			<PaginationContainer />
+			<ComplexPagination />
 		</>
 	);
 };
