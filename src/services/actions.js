@@ -65,9 +65,10 @@ export const checkoutAction =
 				{ data: info },
 				{ headers: { Authorization: `Bearer ${user.token}` } }
 			);
-			
+
 			console.log(response);
 			store.dispatch(clearCart());
+			toast.success('Order placed successfully');
 			return redirect('/orders');
 		} catch (error) {
 			console.log(error);
@@ -75,6 +76,8 @@ export const checkoutAction =
 				error?.response?.data?.error?.message ||
 				'There was an error placing your order';
 			toast.error(errorMessage);
+			if (error.response.status === 401 || error.response.status === 403)
+				return redirect('/login');
 			return null;
 		}
 	};

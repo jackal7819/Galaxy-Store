@@ -1,5 +1,11 @@
+import OrdersList from '../components/OrdersList';
+
 const Orders = () => {
-	return <div>Orders</div>;
+	return (
+		<>
+			<OrdersList />
+		</>
+	);
 };
 
 export default Orders;
