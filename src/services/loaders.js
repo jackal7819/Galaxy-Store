@@ -55,7 +55,7 @@ export const ordersLoader =
 					Authorization: `Bearer ${user.token}`,
 				},
 			});
-			return { orders: response.data.data };
+			return { orders: response.data.data, meta: response.data.meta };
 		} catch (error) {
 			const errorMessage =
 				error?.response?.data?.error?.message ||
