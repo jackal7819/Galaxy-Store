@@ -38,3 +38,8 @@ export const loginAction = (store) => async ({request}) => {
 		return null;
 	}
 };
+
+export const checkoutAction = (store) => async () => {
+	console.log(store);
+	return null;
+};

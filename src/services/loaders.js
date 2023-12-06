@@ -1,4 +1,6 @@
 import customFetch from './customFetch';
+import { redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const featuredProductsUrl = '/products?featured=true';
 const productsUrl = '/products';
@@ -23,4 +25,14 @@ export const productsLoader = async ({ request }) => {
 	const products = response.data.data;
 	const meta = response.data.meta;
 	return { products, meta, params };
+};
+
+export const checkoutLoader = (store) => async () => {
+	const user = store.getState().user.user;
+
+	if (!user) {
+		toast.warn('You must be logged in to checkout');
+		return redirect('/login');
+	}
+	return null;
 };
